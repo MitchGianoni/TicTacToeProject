@@ -77,17 +77,9 @@ class TicTacToe
 			board.draw_board(gameboard)
 			currentplayer, otherplayer = otherplayer,currentplayer
 		end
-		
-		# mitch = {zero: "0", one: "1", two: "2", three: "3", four: "4",
-		#			five: "5", six: "6", seven: "7", eight: "8"}
-		# puts board.draw_board(mitch)
+	
+		print otherplayer[:name], " wins!!!!! \n"
 
 		more = game.play_again?
 	end
-
-#designate piece
-#take turn
-#judge wins
-
-
 end

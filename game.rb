@@ -36,11 +36,15 @@ class Game
 	def computer_take_turn(currentplayer,board)
 		puts "#{currentplayer[:name]} the #{currentplayer[:type]} as #{currentplayer[:piece]} picks:"
 		location = rand(0..8)
+		print location, "\n"
+		sleep 0.5
 		stringlocation = convert_computer_pick(location)
 
 		until valid_choice?(stringlocation) && space_taken?(board, stringlocation)
-			puts "Nope. Please enter a valid location [0-8]:"
+			puts "Nope. #{currentplayer[:name]} will attempt to select a valid location [0-8]:"
 			location = rand(0..8)
+			print location, "\n"
+			sleep 0.5
 			stringlocation = convert_computer_pick(location)
 		end
 

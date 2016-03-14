@@ -21,8 +21,8 @@ class Player
 					name: player, piece: piece, type: "human"
 				}
 			elsif playertype == "C"
-				puts "Player #{x} is a computer named Bob#{x}."
-				player = "Bob#{x}"
+				puts "Player #{x} is a computer named Robo_Bob_#{x}."
+				player = "Robo_Bob_#{x}"
 				return thisplayer = {
 					name: player, piece: piece, type: "computer"
 				} 
