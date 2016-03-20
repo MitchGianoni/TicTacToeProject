@@ -1,13 +1,31 @@
 require 'pry'
 
 class Board
+	## 3 things we need to do:
+	#
+	## 1) be able to check game over
+	## 2) be able to update the @spaces with a move
+	## 3) player needs to "see" the @spaces
 
 	def initialize
 		@spaces = {
-			zero: 0, one: 1, two: 2,
-			three: 3, four: 4, five: 5,
+			zero: 0, one: 1, two: 2, 
+			three: 3, four: 4, five: 5, 
 			six: 6, seven: 7, eight: 8
 		}
+	end
+
+	# TODO: Define this so you can fixup game.rb methods for
+	# computer_take_turn and human_take_turn.
+	# Ideally, you could say in those methods board.available_space?(7)
+	def available_space?(location)
+
+	end
+
+	## TODO: Correctly define place to update board for a player at given location.
+	## Update tic-tac-toe.rb to use this instead of accessors.
+	def place(player, location)
+		@spaces[location] = player.piece
 	end
 
 	def draw_board
@@ -21,56 +39,10 @@ class Board
 	end
 
 	def game_over?
-		if win? || out_of_turns?
-			return true
+		if win? || out_of_turns? 
+			return true 
 		else
-			return false
-		end
-	end
-
-	def legal_move?(location)
-		if location == 0
-			return @spaces[:zero].is_a?(Fixnum)
-		elsif location == 1
-			return @spaces[:one].is_a?(Fixnum)
-		elsif location == 2
-			return @spaces[:two].is_a?(Fixnum)
-		elsif location == 3
-			return @spaces[:three].is_a?(Fixnum)
-		elsif location == 4
-			return @spaces[:four].is_a?(Fixnum)
-		elsif location == 5
-			return @spaces[:five].is_a?(Fixnum)
-		elsif location == 6
-			return @spaces[:six].is_a?(Fixnum)
-		elsif location == 7
-			return @spaces[:seven].is_a?(Fixnum)
-		elsif location == 8
-			return @spaces[:eight].is_a?(Fixnum)
-		else 
-			return false
-		end	
-	end
-
-	def move(currentplayer, choice)
-		if choice == 0
-			@spaces[:zero] = currentplayer[:piece]
-		elsif choice == 1
-			@spaces[:one] = currentplayer[:piece]
-		elsif choice == 2
-			@spaces[:two] = currentplayer[:piece]
-		elsif choice == 3
-			@spaces[:three] = currentplayer[:piece]
-		elsif choice == 4
-			@spaces[:four] = currentplayer[:piece]
-		elsif choice == 5
-			@spaces[:five] = currentplayer[:piece]
-		elsif choice == 6
-			@spaces[:six] = currentplayer[:piece]
-		elsif choice == 7
-			@spaces[:seven] = currentplayer[:piece]
-		elsif choice == 8
-			@spaces[:eight] = currentplayer[:piece]
+			return false	
 		end
 	end
 
@@ -99,4 +71,7 @@ class Board
 			return false
 		end
 	end
-end
+
+
+
+end 
